@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " | ",
+    " | "
+  ],
+  "key": {
+    "#": {
+      "item": "tutorial:silver_ingot"
+    },
+    "|": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "tutorial:silver_shovel"
+  }
+}
