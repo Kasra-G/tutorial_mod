@@ -20,14 +20,19 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
-        buildTexture(itemGenerated, "silver_ingot");
         buildTexture(itemGenerated, "silver_pickaxe");
         buildTexture(itemGenerated, "silver_axe");
         buildTexture(itemGenerated, "silver_shovel");
         buildTexture(itemGenerated, "silver_hoe");
         buildTexture(itemGenerated, "silver_sword");
-        buildTexture(itemGenerated, "silver_dust");
+        buildTexture(itemGenerated, "silver_boots");
+        buildTexture(itemGenerated, "silver_leggings");
+        buildTexture(itemGenerated, "silver_chestplate");
+        buildTexture(itemGenerated, "silver_helmet");
+
+        buildTexture(itemGenerated, "silver_ingot");
         buildTexture(itemGenerated, "silver_nugget");
+        buildTexture(itemGenerated, "silver_dust");
     }
 
     private ItemModelBuilder buildTexture(ModelFile itemGenerated, String name) {

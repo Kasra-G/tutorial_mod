@@ -1,5 +1,6 @@
 package net.drunkenkas.tutorial.setup;
 
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 
@@ -21,6 +22,13 @@ public class ModItems {
             new HoeItem(ModItemTier.SILVER, 0, 0F, new Item.Properties().tab(ItemGroup.TAB_TOOLS)));
     public static final RegistryObject<Item> SILVER_SWORD = Registration.ITEMS.register("silver_sword", () ->
             new SwordItem(ModItemTier.SILVER, 3, -1.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
-
+    public static final RegistryObject<Item> SILVER_BOOTS = Registration.ITEMS.register("silver_boots", () ->
+            new ArmorItem(ModArmorMaterial.SILVER, EquipmentSlotType.FEET, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> SILVER_LEGGINGS = Registration.ITEMS.register("silver_leggings", () ->
+            new ArmorItem(ModArmorMaterial.SILVER, EquipmentSlotType.FEET, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> SILVER_CHESTPLATE = Registration.ITEMS.register("silver_chestplate", () ->
+            new ArmorItem(ModArmorMaterial.SILVER, EquipmentSlotType.FEET, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> SILVER_HELMET = Registration.ITEMS.register("silver_helmet", () ->
+            new ArmorItem(ModArmorMaterial.SILVER, EquipmentSlotType.FEET, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
     public static void register() {}
 }
