@@ -5,6 +5,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
 import net.minecraftforge.common.Tags;
 
+import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
@@ -47,6 +48,7 @@ public enum ModItemTier implements IItemTier {
         return this.enchantmentValue;
     }
 
+    @Nonnull
     public Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
