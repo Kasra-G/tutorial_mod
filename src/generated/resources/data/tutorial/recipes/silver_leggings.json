@@ -1,19 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " # ",
-    " | ",
-    " | "
+    "###",
+    "# #",
+    "# #"
   ],
   "key": {
     "#": {
       "tag": "forge:ingots/silver"
-    },
-    "|": {
-      "tag": "forge:rods/wooden"
     }
   },
   "result": {
-    "item": "tutorial:silver_shovel"
+    "item": "tutorial:silver_leggings"
   }
 }
