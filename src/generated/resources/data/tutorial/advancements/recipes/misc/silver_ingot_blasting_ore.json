@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "tutorial:silver_ore"
+            "tag": "forge:ores/silver"
           }
         ]
       }

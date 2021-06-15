@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "tutorial:silver_ingot"
+      "tag": "forge:ingots/silver"
     },
     "|": {
-      "item": "minecraft:stick"
+      "tag": "forge:rods/wooden"
     }
   },
   "result": {

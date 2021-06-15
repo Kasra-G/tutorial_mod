@@ -1,5 +1,6 @@
 package net.drunkenkas.tutorial.setup;
 
+import net.drunkenkas.tutorial.TutorialMod;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
@@ -13,7 +14,7 @@ import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
-    SILVER("silver", 25, new int[]{3, 6, 7, 3}, 25, SoundEvents.ARMOR_EQUIP_GENERIC, 0.0F, 0.0F,
+    SILVER(TutorialMod.MOD_ID + ":silver", 25, new int[]{3, 6, 7, 3}, 25, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F,
             () -> Ingredient.of(ModTags.Items.INGOTS_SILVER));
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
     private final String name;
