@@ -18,13 +18,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("silver_block", modLoc("block/silver_block"));
         withExistingParent("silver_ore", modLoc("block/silver_ore"));
 
-        ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
+        ModelFile itemHandheld = getExistingFile(mcLoc("item/handheld"));
 
-        buildTexture(itemGenerated, "silver_pickaxe");
-        buildTexture(itemGenerated, "silver_axe");
-        buildTexture(itemGenerated, "silver_shovel");
-        buildTexture(itemGenerated, "silver_hoe");
-        buildTexture(itemGenerated, "silver_sword");
+        buildTexture(itemHandheld, "silver_pickaxe");
+        buildTexture(itemHandheld, "silver_axe");
+        buildTexture(itemHandheld, "silver_shovel");
+        buildTexture(itemHandheld, "silver_hoe");
+        buildTexture(itemHandheld, "silver_sword");
+
+        ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
         buildTexture(itemGenerated, "silver_boots");
         buildTexture(itemGenerated, "silver_leggings");
         buildTexture(itemGenerated, "silver_chestplate");
