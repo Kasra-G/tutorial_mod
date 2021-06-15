@@ -6,6 +6,7 @@ It is mostly a mod to familiarize myself with writing mods.
 - Silver tools
   - These tools are about the same speed as diamond 
     but are a tier lower. It's shiny, so it enchants well.
+- Silver armor
 - More features soon
 ## Pictures:
 Soon.
