@@ -16,6 +16,7 @@ public class SilverArmor extends ArmorItem {
         super(ModArmorMaterial.SILVER, equipmentSlotType, properties);
     }
 
+    /*
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
         if (stack.getItem().equals(ModItems.SILVER_HELMET.get())) {
@@ -28,4 +29,5 @@ public class SilverArmor extends ArmorItem {
             player.addEffect(SILVER_BOOTS_EFFECT_INSTANCE);
         }
     }
+    */
 }
