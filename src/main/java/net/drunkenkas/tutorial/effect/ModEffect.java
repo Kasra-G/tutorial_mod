@@ -1,11 +1,11 @@
-package net.drunkenkas.tutorial.setup;
+package net.drunkenkas.tutorial.effect;
 
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
 
 public class ModEffect extends Effect {
-    protected ModEffect(EffectType effectType, int color) {
+    public ModEffect(EffectType effectType, int color) {
         super(effectType, color);
     }
 

@@ -1,5 +1,6 @@
 package net.drunkenkas.tutorial.setup;
 
+import net.drunkenkas.tutorial.effect.ModEffect;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.potion.*;
