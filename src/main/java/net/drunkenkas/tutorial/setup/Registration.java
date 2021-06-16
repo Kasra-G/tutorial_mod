@@ -1,7 +1,8 @@
 package net.drunkenkas.tutorial.setup;
 
 import net.drunkenkas.tutorial.TutorialMod;
-import net.drunkenkas.tutorial.world.OreGeneration;
+import net.drunkenkas.tutorial.entity.LivingListener;
+import net.drunkenkas.tutorial.world.OreGenerationListener;
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
@@ -26,7 +27,8 @@ public class Registration {
         ModBlocks.register();
         ModItems.register();
         ModEffects.load();
+        LivingListener.registerEvents();
 
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenerationListener::generateOres);
     }
 }

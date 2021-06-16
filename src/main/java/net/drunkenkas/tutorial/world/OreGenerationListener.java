@@ -11,7 +11,7 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-public class OreGeneration {
+public class OreGenerationListener {
     public static void generateOres(final BiomeLoadingEvent event) {
         if (!(event.getCategory().equals(Biome.Category.NETHER) ||
                 event.getCategory().equals(Biome.Category.THEEND))) {
