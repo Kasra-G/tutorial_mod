@@ -1,13 +1,10 @@
-package net.drunkenkas.tutorial.setup;
+package net.drunkenkas.tutorial.item;
 
-import net.minecraft.entity.player.PlayerEntity;
+import net.drunkenkas.tutorial.setup.ModEffects;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.world.World;
 
 public class SilverArmor extends ArmorItem {
     public static final EffectInstance SILVER_BOOTS_EFFECT_INSTANCE = new EffectInstance(ModEffects.MOVEMENT_SPEED, 1, 5);

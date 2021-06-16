@@ -1,5 +1,6 @@
-package net.drunkenkas.tutorial.setup;
+package net.drunkenkas.tutorial.item;
 
+import net.drunkenkas.tutorial.setup.ModTags;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;

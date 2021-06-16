@@ -1,6 +1,7 @@
-package net.drunkenkas.tutorial.setup;
+package net.drunkenkas.tutorial.item;
 
 import net.drunkenkas.tutorial.TutorialMod;
+import net.drunkenkas.tutorial.setup.ModTags;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;

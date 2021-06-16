@@ -1,5 +1,7 @@
 package net.drunkenkas.tutorial.setup;
 
+import net.drunkenkas.tutorial.item.ModItemTier;
+import net.drunkenkas.tutorial.item.SilverArmor;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
