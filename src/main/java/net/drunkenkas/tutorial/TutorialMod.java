@@ -1,10 +1,8 @@
 package net.drunkenkas.tutorial;
 
 import net.drunkenkas.tutorial.setup.Registration;
-import net.drunkenkas.tutorial.world.OreGeneration;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
