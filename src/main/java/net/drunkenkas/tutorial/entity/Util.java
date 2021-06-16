@@ -34,7 +34,7 @@ public class Util {
                 x + size / 2, y + size / 2, z + size / 2);
     }
 
-    public static boolean playerWearingFullSilverSet(PlayerEntity player) {
+    public static boolean isWearingFullSilverSet(PlayerEntity player) {
         for (ItemStack stack : player.getArmorSlots()) {
             Item item = stack.getItem();
             if (!(item instanceof ArmorItem)) {

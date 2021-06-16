@@ -14,6 +14,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -21,13 +22,21 @@ import java.util.List;
 public class LivingListener {
     public static final double silverfish_range = 32;
 
-    public static void onEntitySpawn(EntityJoinWorldEvent event) {
+    public static void onEntitySpawn(@Nonnull EntityJoinWorldEvent event) {
+        if (event.getWorld().isClientSide()) {
+            return;
+        }
+
         if (event.getEntity() instanceof PhantomEntity) {
             event.getEntity().remove();
         }
     }
 
-    public static void onDamageTakenEvent(LivingDamageEvent event) {
+    public static void onDamageTakenEvent(@Nonnull LivingDamageEvent event) {
+        if (event.getEntity().getCommandSenderWorld().isClientSide()) {
+            return;
+        }
+
         LivingEntity entity = event.getEntityLiving();
         if (entity == null || entity instanceof SilverfishEntity || entity.getCommandSenderWorld().isClientSide) {
             return;
@@ -71,7 +80,11 @@ public class LivingListener {
 
     }
 
-    public static void onEntityTargetedEvent(LivingSetAttackTargetEvent event) {
+    public static void onEntityTargetedEvent(@Nonnull LivingSetAttackTargetEvent event) {
+        if (event.getEntity().getCommandSenderWorld().isClientSide()) {
+            return;
+        }
+
         LivingEntity entity = event.getEntityLiving();
         if (!(entity instanceof SilverfishEntity)) {
             return;
@@ -82,19 +95,23 @@ public class LivingListener {
         }
         PlayerEntity player = (PlayerEntity) event.getTarget();
 
-        if (Util.playerWearingFullSilverSet(player)) {
+        if (Util.isWearingFullSilverSet(player)) {
             Util.resetSilverfishTargeting(silverfishEntity);
         }
     }
 
     public static void onLivingUpdateEvent(@Nonnull LivingEvent.LivingUpdateEvent event) {
+        if (event.getEntity().getCommandSenderWorld().isClientSide()) {
+            return;
+        }
+
         LivingEntity entity = event.getEntityLiving();
         if (entity.getCommandSenderWorld().isClientSide()) {
             return;
         }
         if (entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
-            if (!Util.playerWearingFullSilverSet(player)) {
+            if (!Util.isWearingFullSilverSet(player)) {
                 return;
             }
 
@@ -120,7 +137,7 @@ public class LivingListener {
             SilverfishEntity se = (SilverfishEntity) entity;
             if (se.hasEffect(ModEffects.MOVEMENT_SPEED)) {
                 if (se.getTarget() != null && se.getTarget().getEntity() instanceof PlayerEntity) {
-                    if (Util.playerWearingFullSilverSet((PlayerEntity) se.getTarget().getEntity())) {
+                    if (Util.isWearingFullSilverSet((PlayerEntity) se.getTarget().getEntity())) {
                         Util.resetSilverfishTargeting(se);
                     }
                 }
