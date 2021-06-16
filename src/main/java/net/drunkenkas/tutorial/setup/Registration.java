@@ -25,6 +25,7 @@ public class Registration {
 
         ModBlocks.register();
         ModItems.register();
+        ModEffects.load();
 
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
     }
