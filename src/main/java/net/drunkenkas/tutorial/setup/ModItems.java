@@ -1,11 +1,8 @@
 package net.drunkenkas.tutorial.setup;
 
-import net.drunkenkas.tutorial.item.ModItemTier;
-import net.drunkenkas.tutorial.item.SilverArmorItem;
-import net.drunkenkas.tutorial.item.SilverSwordItem;
+import net.drunkenkas.tutorial.item.*;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.RegistryObject;
 
 public class ModItems {
@@ -21,19 +18,19 @@ public class ModItems {
     public static final RegistryObject<Item> SILVER_PICKAXE = Registration.ITEMS.register("silver_pickaxe", () ->
             new PickaxeItem(ModItemTier.SILVER, 1, -1.8F, new Item.Properties().tab(ItemGroup.TAB_TOOLS)));
     public static final RegistryObject<Item> SILVER_AXE = Registration.ITEMS.register("silver_axe", () ->
-            new AxeItem(ModItemTier.SILVER, 6, -2.0F, new Item.Properties().tab(ItemGroup.TAB_TOOLS)));
+            new ModAxeItem(ModItemTier.SILVER, 6, -2.0F, new Item.Properties().tab(ItemGroup.TAB_TOOLS)));
     public static final RegistryObject<Item> SILVER_HOE = Registration.ITEMS.register("silver_hoe", () ->
             new HoeItem(ModItemTier.SILVER, 0, 0F, new Item.Properties().tab(ItemGroup.TAB_TOOLS)));
     public static final RegistryObject<Item> SILVER_SWORD = Registration.ITEMS.register("silver_sword", () ->
-            new SilverSwordItem(ModItemTier.SILVER, 5, -1.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            new ModSwordItem(ModItemTier.SILVER, 5, -1.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
     public static final RegistryObject<Item> SILVER_BOOTS = Registration.ITEMS.register("silver_boots", () ->
-            new SilverArmorItem(EquipmentSlotType.FEET, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            new ModArmorItem(ModArmorMaterial.SILVER, EquipmentSlotType.FEET, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
     public static final RegistryObject<Item> SILVER_LEGGINGS = Registration.ITEMS.register("silver_leggings", () ->
-            new SilverArmorItem(EquipmentSlotType.LEGS, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            new ModArmorItem(ModArmorMaterial.SILVER, EquipmentSlotType.LEGS, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
     public static final RegistryObject<Item> SILVER_CHESTPLATE = Registration.ITEMS.register("silver_chestplate", () ->
-            new SilverArmorItem(EquipmentSlotType.CHEST, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            new ModArmorItem(ModArmorMaterial.SILVER, EquipmentSlotType.CHEST, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
     public static final RegistryObject<Item> SILVER_HELMET = Registration.ITEMS.register("silver_helmet", () ->
-            new SilverArmorItem(EquipmentSlotType.HEAD, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            new ModArmorItem(ModArmorMaterial.SILVER, EquipmentSlotType.HEAD, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
     public static void register() {
 //        MinecraftForge.EVENT_BUS.addListener(SilverSwordItem::onEntityDamaged);
     }
