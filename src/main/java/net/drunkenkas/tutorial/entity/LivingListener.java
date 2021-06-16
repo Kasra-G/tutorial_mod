@@ -15,11 +15,11 @@ import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 public class LivingListener {
     public static final double silverfish_range = 32;
-    public static final EffectInstance FRIENDLY_SILVER_EFFECT_INSTANCE = new EffectInstance(ModEffects.MOVEMENT_SPEED, 5, 2, true, false, false);
 
     public static void onEntitySpawn(EntityJoinWorldEvent event) {
         if (event.getEntity() instanceof PhantomEntity) {
@@ -87,7 +87,7 @@ public class LivingListener {
         }
     }
 
-    public static void onLivingUpdateEvent(LivingEvent.LivingUpdateEvent event) {
+    public static void onLivingUpdateEvent(@Nonnull LivingEvent.LivingUpdateEvent event) {
         LivingEntity entity = event.getEntityLiving();
         if (entity.getCommandSenderWorld().isClientSide()) {
             return;
@@ -105,6 +105,7 @@ public class LivingListener {
             for (SilverfishEntity silverfishEntity : nearbySilverfish) {
                 silverfishEntity.addEffect(new EffectInstance(ModEffects.MOVEMENT_SPEED, 10, 2, true, false, false));
                 silverfishEntity.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 10, 0, true, false, false));
+                silverfishEntity.addEffect(new EffectInstance(Effects.ABSORPTION, 10, 1, true, false, false));
             }
             List<SilverfishEntity> allSilverFish = player.getCommandSenderWorld().getLoadedEntitiesOfClass(SilverfishEntity.class,
                     Util.centeredCubeOfSize(player.getX(), player.getY(), player.getZ(), silverfish_range * 4));
@@ -126,5 +127,4 @@ public class LivingListener {
             }
         }
     }
-
 }
