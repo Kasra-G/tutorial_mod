@@ -10,8 +10,8 @@ import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 
 public class SilverArmor extends ArmorItem {
-    private static final EffectInstance SILVER_BOOTS_EFFECT_INSTANCE = new EffectInstance(ModEffects.MOVEMENT_SPEED, 1);
-    private static final EffectInstance SILVER_HELMET_EFFECT_INSTANCE = new EffectInstance(Effects.NIGHT_VISION, 1);
+    public static final EffectInstance SILVER_BOOTS_EFFECT_INSTANCE = new EffectInstance(ModEffects.MOVEMENT_SPEED, 1, 5);
+    public static final EffectInstance SILVER_HELMET_EFFECT_INSTANCE = new EffectInstance(Effects.NIGHT_VISION, 1);
 
     public SilverArmor(EquipmentSlotType equipmentSlotType, Properties properties) {
         super(ModArmorMaterial.SILVER, equipmentSlotType, properties);

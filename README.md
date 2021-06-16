@@ -7,6 +7,12 @@ It is mostly a mod to familiarize myself with writing mods.
   - These tools are about the same speed as diamond 
     but are a tier lower. It's shiny, so it enchants well.
 - Silver armor
+  - Wear a full set to trick nearby silverfish into thinking you
+    are an alpha silverfish. They will keep
+  close to you and fight mobs that you attack or that attack you.
+    If you stop having a full set of silver armor they will realize you are
+    not one of them and turn on you.
+  - Nearby silverfish will gain speed and strength when wearing a full set.
 - More features soon
 ## Pictures:
 Soon.
