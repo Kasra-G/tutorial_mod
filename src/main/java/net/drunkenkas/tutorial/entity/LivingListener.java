@@ -19,7 +19,6 @@ import java.util.List;
 
 public class LivingListener {
     public static final double silverfish_range = 32;
-    public static final EffectInstance FRIENDLY_SILVER_EFFECT_INSTANCE = new EffectInstance(ModEffects.MOVEMENT_SPEED, 5, 2, true, false, false);
 
     public static void onEntitySpawn(EntityJoinWorldEvent event) {
         if (event.getEntity() instanceof PhantomEntity) {
@@ -105,6 +104,7 @@ public class LivingListener {
             for (SilverfishEntity silverfishEntity : nearbySilverfish) {
                 silverfishEntity.addEffect(new EffectInstance(ModEffects.MOVEMENT_SPEED, 10, 2, true, false, false));
                 silverfishEntity.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 10, 0, true, false, false));
+                silverfishEntity.addEffect(new EffectInstance(Effects.ABSORPTION, 10, 1, true, false, false));
             }
             List<SilverfishEntity> allSilverFish = player.getCommandSenderWorld().getLoadedEntitiesOfClass(SilverfishEntity.class,
                     Util.centeredCubeOfSize(player.getX(), player.getY(), player.getZ(), silverfish_range * 4));
@@ -126,5 +126,4 @@ public class LivingListener {
             }
         }
     }
-
 }
