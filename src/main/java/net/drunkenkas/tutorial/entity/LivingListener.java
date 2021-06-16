@@ -1,7 +1,7 @@
 package net.drunkenkas.tutorial.entity;
 
 import net.drunkenkas.tutorial.setup.ModEffects;
-import net.drunkenkas.tutorial.item.SilverArmor;
+import net.drunkenkas.tutorial.item.SilverArmorItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.LivingEntity;
@@ -160,7 +160,7 @@ public class LivingListener {
     private static boolean playerWearingFullSilverSet(PlayerEntity player) {
         for (ItemStack stack : player.getArmorSlots()) {
             Item item = stack.getItem();
-            if (!(item instanceof SilverArmor)) {
+            if (!(item instanceof SilverArmorItem)) {
                 return false;
             }
         }
