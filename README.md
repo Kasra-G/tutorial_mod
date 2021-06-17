@@ -3,16 +3,29 @@ This is my first Minecraft mod.
 It is mostly a mod to familiarize myself with writing mods.
 ## Features:
 - Silver ore generation
+  - Mine silver ore deep underground to make tools, weapons, and armor.
 - Silver tools
-  - These tools are about the same speed as diamond 
-    but are a tier lower. It's shiny, so it enchants well.
+  - About the same speed as diamond with less durability
+  - Very high enchantability
+- Silver weapons
+  - Fast attack speed
+  - Base damage is lower than diamond, but deals much more damage to undead mobs.
+  - Very high enchantability
 - Silver armor
   - Wear a full set to trick nearby silverfish into thinking you
     are an alpha silverfish. They will keep
-  close to you and fight mobs that you attack or that attack you.
+    close to you and fight mobs that you attack or that attack you.
     If you stop having a full set of silver armor they will realize you are
     not one of them and turn on you.
-  - Nearby silverfish will gain speed, strength, and health when wearing a full set.
+  - Similar to Iron Armor in terms of protection
+  - Very high enchantability
+- Silverfish behavior changed
+  - now have 39% chance of dropping Silver Dust on death.
+    - Smelt the dust into ingots.
+  - Effect on Silverfish when fully armored player is nearby
+    - Gain speed, strength, and health
+    - Target your attackers
+  
 - More features soon
 ## Pictures:
 Soon.
