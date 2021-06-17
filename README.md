@@ -15,16 +15,15 @@ It is mostly a mod to familiarize myself with writing mods.
   - Wear a full set to trick nearby silverfish into thinking you
     are an alpha silverfish. They will keep
     close to you and fight mobs that you attack or that attack you.
-    If you stop having a full set of silver armor they will realize you are
-    not one of them and turn on you.
+    - If you stop having a full set of silver armor they will realize you are
+      not one of them and turn on you.
   - Similar to Iron Armor in terms of protection
   - Very high enchantability
 - Silverfish behavior changed
-  - now have 39% chance of dropping Silver Dust on death.
-    - Smelt the dust into ingots.
-  - Effect on Silverfish when fully armored player is nearby
+  - Chance of dropping Silver Dust on death.
+  - Effect on Silverfish when fully silver armored player is nearby:
     - Gain speed, strength, and health
-    - Target your attackers
+    - Target the armored players' attackers
   
 - More features soon
 ## Pictures:

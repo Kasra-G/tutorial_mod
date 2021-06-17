@@ -4,6 +4,7 @@ import net.drunkenkas.tutorial.setup.ModEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.PhantomEntity;
 import net.minecraft.entity.monster.SilverfishEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,13 +15,12 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 
 import javax.annotation.Nonnull;
 import java.util.List;
 
 public class LivingListener {
-    public static final double silverfish_range = 32;
+    public static final double silverfish_range = 24;
 
     public static void onEntitySpawn(@Nonnull EntityJoinWorldEvent event) {
         if (event.getWorld().isClientSide()) {
@@ -65,7 +65,7 @@ public class LivingListener {
         AxisAlignedBB bb = Util.centeredCubeOfSize(target.getX(), target.getY(), target.getZ());
         List<SilverfishEntity> nearbySilverfish = target.getCommandSenderWorld()
                 .getNearbyEntities(SilverfishEntity.class,
-                        EntityPredicate.DEFAULT.allowUnseeable().range(silverfish_range), target, bb);
+                        EntityPredicate.DEFAULT.allowUnseeable(), target, bb);
         for (SilverfishEntity s : nearbySilverfish) {
             if (s.hasEffect(ModEffects.MOVEMENT_SPEED) && !(target.equals(s.getTarget()))) {
                 s.setTarget(target);
@@ -86,17 +86,20 @@ public class LivingListener {
         }
 
         LivingEntity entity = event.getEntityLiving();
-        if (!(entity instanceof SilverfishEntity)) {
-            return;
-        }
-        SilverfishEntity silverfishEntity = (SilverfishEntity) entity;
-        if (!(event.getTarget() instanceof PlayerEntity)) {
-            return;
-        }
-        PlayerEntity player = (PlayerEntity) event.getTarget();
+        if (entity instanceof SilverfishEntity) {
+            SilverfishEntity silverfishEntity = (SilverfishEntity) entity;
+            if (!(event.getTarget() instanceof PlayerEntity)) {
+                return;
+            }
+            PlayerEntity player = (PlayerEntity) event.getTarget();
 
-        if (Util.isWearingFullSilverSet(player)) {
-            Util.resetSilverfishTargeting(silverfishEntity);
+            if (Util.isWearingFullSilverSet(player)) {
+                Util.resetSilverfishTargeting(silverfishEntity);
+            }
+        } else if (entity instanceof CreeperEntity) {
+            if (event.getTarget() instanceof SilverfishEntity) {
+                ((CreeperEntity) entity).setTarget(null);
+            }
         }
     }
 
@@ -120,9 +123,10 @@ public class LivingListener {
                     .getNearbyEntities(SilverfishEntity.class,
                             EntityPredicate.DEFAULT.allowUnseeable(), player, bb);
             for (SilverfishEntity silverfishEntity : nearbySilverfish) {
-                silverfishEntity.addEffect(new EffectInstance(ModEffects.MOVEMENT_SPEED, 10, 2, true, false, false));
+                silverfishEntity.addEffect(new EffectInstance(ModEffects.MOVEMENT_SPEED, 10, 1, true, false, false));
                 silverfishEntity.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 10, 0, true, false, false));
-                silverfishEntity.addEffect(new EffectInstance(Effects.ABSORPTION, 10, 1, true, false, false));
+                silverfishEntity.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 10, 0, true, false, false));
+                silverfishEntity.addEffect(new EffectInstance(Effects.REGENERATION, 10, 0, true, false, false));
             }
             List<SilverfishEntity> allSilverFish = player.getCommandSenderWorld().getLoadedEntitiesOfClass(SilverfishEntity.class,
                     Util.centeredCubeOfSize(player.getX(), player.getY(), player.getZ(), silverfish_range * 4));

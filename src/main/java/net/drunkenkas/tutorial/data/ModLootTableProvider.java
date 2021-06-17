@@ -3,18 +3,12 @@ package net.drunkenkas.tutorial.data;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.drunkenkas.tutorial.setup.ModBlocks;
-import net.drunkenkas.tutorial.setup.ModItems;
 import net.drunkenkas.tutorial.setup.Registration;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.LootTableProvider;
 import net.minecraft.data.loot.BlockLootTables;
-import net.minecraft.data.loot.EntityLootTables;
-import net.minecraft.entity.EntityType;
 import net.minecraft.loot.*;
-import net.minecraft.loot.conditions.KilledByPlayer;
-import net.minecraft.loot.functions.LootingEnchantBonus;
-import net.minecraft.loot.functions.SetCount;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 
@@ -43,22 +37,6 @@ public class ModLootTableProvider extends LootTableProvider {
     protected void validate(Map<ResourceLocation, LootTable> map, @Nonnull ValidationTracker validationtracker) {
         map.forEach((a, b) -> LootTableManager.validate(validationtracker, a, b));
     }
-    /*
-    public static class ModEntityLootTables extends EntityLootTables {
-        @Override
-        protected void addTables() {
-            this.add(EntityType.SILVERFISH, LootTable.lootTable()
-                    .withPool(LootPool.lootPool()
-                            .setRolls(ConstantRange.exactly(1))
-                            .add(ItemLootEntry.lootTableItem(ModBlocks.SILVER_BLOCK.get().asItem())
-                                    .apply(SetCount.setCount(RandomValueRange.between(0.0F, 1.0F)))
-                                    .apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F)))
-                            )
-                            .when(KilledByPlayer.killedByPlayer())
-                    ));
-        }
-    }
-    */
 
     public static class ModBlockLootTables extends BlockLootTables {
         @Override

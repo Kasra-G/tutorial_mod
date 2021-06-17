@@ -14,16 +14,4 @@ public class ModArmorItem extends ArmorItem {
     public ModArmorItem(IArmorMaterial armorMaterial, EquipmentSlotType equipmentSlotType, Properties properties) {
         super(armorMaterial, equipmentSlotType, properties);
     }
-
-    /*
-    @Override
-    public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        for (ItemStack itemStack : player.getArmorSlots()) {
-            Item item = itemStack.getItem();
-            if (!(item instanceof SilverArmor)) {
-                return;
-            }
-        }
-    }
-     */
 }
