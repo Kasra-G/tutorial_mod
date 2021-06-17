@@ -1,0 +1,11 @@
+{
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:entities/silverfish"
+    }
+  ],
+  "dropItem": "tutorial:silver_dust",
+  "dropChance": 0.39,
+  "type": "tutorial:silverfish_drop"
+}
