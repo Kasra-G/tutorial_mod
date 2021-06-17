@@ -41,6 +41,9 @@ public class ModRecipeProvider extends RecipeProvider {
         CookingRecipeBuilder.blasting(Ingredient.of(ModBlocks.SILVER_ORE.get()), ModItems.SILVER_INGOT.get(), 0.7f, 100)
                 .unlockedBy("has_item", has(ModTags.Items.ORES_SILVER))
                 .save(consumer, modId("silver_ingot_blasting_ore"));
+        CookingRecipeBuilder.smelting(Ingredient.of(ModTags.Items.DUSTS_SILVER), ModItems.SILVER_INGOT.get(), 0.3f, 200)
+                .unlockedBy("has_item", has(ModTags.Items.DUSTS_SILVER))
+                .save(consumer, modId("silver_ingot_smelting_dust"));
     }
 
     private void buildShapedRecipes(Consumer<IFinishedRecipe> consumer) {
