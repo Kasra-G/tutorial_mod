@@ -27,9 +27,9 @@ public class SilverfishDropModifier extends LootModifier {
     /**
      * Constructs a SilverfishDropModifier.
      *
-     * @param conditionsIn the ILootConditions that need to be matched before the loot is modified.
-     * @param dropItem the Item to be dropped by the Silverfish on death
-     * @param dropChance the float chance of dropping the Item by the Silverfish on death
+     * @param conditionsIn  the ILootConditions that need to be matched before the loot is modified.
+     * @param dropItem  the Item to be dropped by the Silverfish on death
+     * @param dropChance  the float chance of dropping the Item by the Silverfish on death
      */
     public SilverfishDropModifier(ILootCondition[] conditionsIn, final Item dropItem, final float dropChance) {
         super(conditionsIn);
@@ -40,8 +40,8 @@ public class SilverfishDropModifier extends LootModifier {
     /**
      * Applies the modifier.
      *
-     * @param generatedLoot the loot generated already
-     * @param context the LootContext of this loot generation
+     * @param generatedLoot  the loot generated already
+     * @param context  the LootContext of this loot generation
      * @return the updated loot
      */
     @Nonnull
@@ -55,7 +55,7 @@ public class SilverfishDropModifier extends LootModifier {
      * Gets the appropriate loot for the Silverfish to drop.
      * Also accounts for looting.
      *
-     * @param context the LootContext of this loot generation
+     * @param context  the LootContext of this loot generation
      * @return the added loot for the Silverfish
      */
     private ItemStack getLoot(LootContext context) {
@@ -80,9 +80,9 @@ public class SilverfishDropModifier extends LootModifier {
         /**
          * Reads the dropItem and dropChance from the JSON file.
          *
-         * @param location the ResourceLocation of the serializer (unused)
-         * @param object the JsonObject for the JSON file for the SilverfishDropModifier
-         * @param conditionsIn the loot conditions
+         * @param location  the ResourceLocation of the serializer (unused)
+         * @param object  the JsonObject for the JSON file for the SilverfishDropModifier
+         * @param conditionsIn  the loot conditions
          * @return the new SilverfishDropModifier constructed from the JSON.
          */
         @Override
@@ -95,7 +95,7 @@ public class SilverfishDropModifier extends LootModifier {
         /**
          * Encodes the given instance of SilvefishDropModifier as a JsonObject.
          *
-         * @param instance the instance of SilverfishDropModifier to encode
+         * @param instance  the instance of SilverfishDropModifier to encode
          * @return the encoded JsonObject
          */
         @Override

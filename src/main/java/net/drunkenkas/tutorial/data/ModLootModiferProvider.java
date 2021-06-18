@@ -18,7 +18,7 @@ public class ModLootModiferProvider extends GlobalLootModifierProvider {
     /**
      * Instantiates this LootModifierProvider.
      *
-     * @param gen the generator to use
+     * @param gen  the DataGenerator to use
      */
     public ModLootModiferProvider(DataGenerator gen) {
         super(gen, TutorialMod.MOD_ID);
@@ -27,9 +27,9 @@ public class ModLootModiferProvider extends GlobalLootModifierProvider {
     /**
      * Adds all the loot modifications.
      *
-     * Modified loot: <p>
-     *     Silverfish drop silver dust on death.
-     * </p>
+     * Modified loot:
+     * - Silverfish drop silver dust on death.
+     *
      */
     @Override
     protected void start() {

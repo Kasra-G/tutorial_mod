@@ -7,12 +7,24 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+/**
+ * This class provides all the models for every ModItem or ModBlock added.
+ */
 public class ModItemModelProvider extends ItemModelProvider {
 
+    /**
+     * Instantiates this ModItemModelProvider.
+     *
+     * @param generator  the DataGenerator to use
+     * @param existingFileHelper  the ExistingFileHelper to pass
+     */
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, TutorialMod.MOD_ID, existingFileHelper);
     }
 
+    /**
+     * Registers all the models for Items and Blocks
+     */
     @Override
     protected void registerModels() {
         withExistingParent("silver_block", modLoc("block/silver_block"));
@@ -36,7 +48,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         buildTexture(itemGenerated, "silver_dust");
     }
 
-    private ItemModelBuilder buildTexture(ModelFile itemGenerated, String name) {
-        return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+    /**
+     * Helper method for building item textures.
+     *
+     * @param modelFile  the ModelFile to use
+     * @param name  the name of the item to texture
+     * @return the ItemModelBuilder created
+     */
+    private ItemModelBuilder buildTexture(ModelFile modelFile, String name) {
+        return getBuilder(name).parent(modelFile).texture("layer0", "item/" + name);
     }
 }
