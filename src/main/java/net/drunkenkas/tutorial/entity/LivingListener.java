@@ -62,7 +62,7 @@ public class LivingListener {
             return;
         }
 
-        AxisAlignedBB bb = Util.centeredCubeOfSize(target.getX(), target.getY(), target.getZ());
+        AxisAlignedBB bb = Util.newBoxCenteredAt(target.getX(), target.getY(), target.getZ());
         List<SilverfishEntity> nearbySilverfish = target.getCommandSenderWorld()
                 .getNearbyEntities(SilverfishEntity.class,
                         EntityPredicate.DEFAULT.allowUnseeable(), target, bb);
@@ -94,7 +94,7 @@ public class LivingListener {
             PlayerEntity player = (PlayerEntity) event.getTarget();
 
             if (Util.isWearingFullSilverSet(player)) {
-                Util.resetSilverfishTargeting(silverfishEntity);
+                Util.resetTargeting(silverfishEntity);
             }
         } else if (entity instanceof CreeperEntity) {
             if (event.getTarget() instanceof SilverfishEntity) {
@@ -118,7 +118,7 @@ public class LivingListener {
                 return;
             }
 
-            AxisAlignedBB bb = Util.centeredCubeOfSize(entity.getX(), entity.getY(), entity.getZ());
+            AxisAlignedBB bb = Util.newBoxCenteredAt(entity.getX(), entity.getY(), entity.getZ());
             List<SilverfishEntity> nearbySilverfish = player.getCommandSenderWorld()
                     .getNearbyEntities(SilverfishEntity.class,
                             EntityPredicate.DEFAULT.allowUnseeable(), player, bb);
@@ -129,7 +129,7 @@ public class LivingListener {
                 silverfishEntity.addEffect(new EffectInstance(Effects.REGENERATION, 10, 0, true, false, false));
             }
             List<SilverfishEntity> allSilverFish = player.getCommandSenderWorld().getLoadedEntitiesOfClass(SilverfishEntity.class,
-                    Util.centeredCubeOfSize(player.getX(), player.getY(), player.getZ(), silverfish_range * 4));
+                    Util.newBoxCenteredAt(player.getX(), player.getY(), player.getZ(), silverfish_range * 2));
             for (SilverfishEntity silveryboi : allSilverFish) {
                 if (silveryboi.hasEffect(ModEffects.MOVEMENT_SPEED)) {
                     if (player.distanceTo(silveryboi) >= silverfish_range) {
@@ -142,7 +142,7 @@ public class LivingListener {
             if (se.hasEffect(ModEffects.MOVEMENT_SPEED)) {
                 if (se.getTarget() != null && se.getTarget().getEntity() instanceof PlayerEntity) {
                     if (Util.isWearingFullSilverSet((PlayerEntity) se.getTarget().getEntity())) {
-                        Util.resetSilverfishTargeting(se);
+                        Util.resetTargeting(se);
                     }
                 }
             }
