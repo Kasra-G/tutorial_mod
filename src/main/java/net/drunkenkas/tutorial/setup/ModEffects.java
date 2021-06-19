@@ -5,6 +5,9 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.potion.*;
 
+/**
+ * This class represents a copy of all the normal effects except that these do not render at all.
+ */
 public class ModEffects {
     public static final Effect MOVEMENT_SPEED = (new ModEffect(EffectType.BENEFICIAL, 8171462)).addAttributeModifier(Attributes.MOVEMENT_SPEED, "91AEAA56-376B-4498-935B-2F7F68070635", 0.2F, AttributeModifier.Operation.MULTIPLY_TOTAL);
     public static final Effect MOVEMENT_SLOWDOWN = (new ModEffect(EffectType.HARMFUL, 5926017)).addAttributeModifier(Attributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15F, AttributeModifier.Operation.MULTIPLY_TOTAL);
@@ -37,5 +40,8 @@ public class ModEffects {
     public static final Effect CONDUIT_POWER = (new ModEffect(EffectType.BENEFICIAL, 1950417));
     public static final Effect DOLPHINS_GRACE = (new ModEffect(EffectType.BENEFICIAL, 8954814));
 
+    /**
+     * Classloading method.
+     */
     public static void load() {}
 }

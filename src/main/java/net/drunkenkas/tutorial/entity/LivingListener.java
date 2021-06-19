@@ -9,6 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
@@ -151,5 +152,14 @@ public class LivingListener {
                 }
             }
         }
+    }
+
+    /**
+     * Registers the event listeners to the Forge Event Bus.
+     */
+    public static void registerEvents() {
+        MinecraftForge.EVENT_BUS.addListener(LivingListener::onEntityTargetedEvent);
+        MinecraftForge.EVENT_BUS.addListener(LivingListener::onLivingUpdateEvent);
+        MinecraftForge.EVENT_BUS.addListener(LivingListener::onDamageTakenEvent);
     }
 }

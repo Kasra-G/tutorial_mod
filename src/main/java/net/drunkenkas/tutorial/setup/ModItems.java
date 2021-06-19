@@ -5,6 +5,9 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 
+/**
+ * This class registers all the items added by this mod.
+ */
 public class ModItems {
     public static final RegistryObject<Item> SILVER_INGOT = Registration.ITEMS.register("silver_ingot", () ->
             new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
@@ -31,7 +34,9 @@ public class ModItems {
             new ModArmorItem(ModArmorMaterial.SILVER, EquipmentSlotType.CHEST, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
     public static final RegistryObject<Item> SILVER_HELMET = Registration.ITEMS.register("silver_helmet", () ->
             new ModArmorItem(ModArmorMaterial.SILVER, EquipmentSlotType.HEAD, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
-    public static void register() {
-//        MinecraftForge.EVENT_BUS.addListener(SilverSwordItem::onEntityDamaged);
-    }
+
+    /**
+     * Classloading method.
+     */
+    public static void register() {}
 }

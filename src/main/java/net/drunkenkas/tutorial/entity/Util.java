@@ -20,15 +20,6 @@ import java.util.Optional;
 public class Util {
 
     /**
-     * Registers the event listeners to the Forge Event Bus.
-     */
-    public static void registerEvents() {
-        MinecraftForge.EVENT_BUS.addListener(LivingListener::onEntityTargetedEvent);
-        MinecraftForge.EVENT_BUS.addListener(LivingListener::onLivingUpdateEvent);
-        MinecraftForge.EVENT_BUS.addListener(LivingListener::onDamageTakenEvent);
-    }
-
-    /**
      * Resets the targeting of the specified entity.
      *
      * @param entity the entity to reset the targeting for.
