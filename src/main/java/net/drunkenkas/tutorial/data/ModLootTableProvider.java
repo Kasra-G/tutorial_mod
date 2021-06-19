@@ -20,11 +20,25 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+/**
+ * This class provides all the extra LootTables for this mod.
+ */
 public class ModLootTableProvider extends LootTableProvider {
+
+    /**
+     * Instantiates a new ModLootTableProvider.
+     *
+     * @param dataGenerator  the DataGenerator to use
+     */
     public ModLootTableProvider(DataGenerator dataGenerator) {
         super(dataGenerator);
     }
 
+    /**
+     * Returns the List of LootTables added paired with the appropriate LootParameterSet.
+     *
+     * @return  the ImmutableList of LootTables paired with the appropriate LootParameterSet.
+     */
     @Override
     @Nonnull
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
@@ -33,18 +47,36 @@ public class ModLootTableProvider extends LootTableProvider {
         );
     }
 
+    /**
+     * Validates each LootTable and ResourceLocation.
+     *
+     * @param map  the map of ResourceLocations and LootTables.
+     * @param validationtracker  the ValidationTracker to use
+     */
     @Override
     protected void validate(Map<ResourceLocation, LootTable> map, @Nonnull ValidationTracker validationtracker) {
-        map.forEach((a, b) -> LootTableManager.validate(validationtracker, a, b));
+        map.forEach((resLoc, lootTable) -> LootTableManager.validate(validationtracker, resLoc, lootTable));
     }
 
+    /**
+     * This class provides the LootTables added for Blocks.
+     */
     public static class ModBlockLootTables extends BlockLootTables {
+
+        /**
+         * Generates the LootTables for each Block.
+         */
         @Override
         protected void addTables() {
             dropSelf(ModBlocks.SILVER_BLOCK.get());
             dropSelf(ModBlocks.SILVER_ORE.get());
         }
 
+        /**
+         * Returns the list of registered ModBlocks.
+         *
+         * @return the list of registered ModBLocks.
+         */
         @Override
         @Nonnull
         protected Iterable<Block> getKnownBlocks() {

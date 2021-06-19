@@ -10,11 +10,24 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 
+/**
+ * This class provides all the Tags for the Blocks in this mod.
+ */
 public class ModBlockTagsProvider extends BlockTagsProvider {
+
+    /**
+     * Instantiates a new ModBlockTagsProvider.
+     *
+     * @param dataGenerator  the DataGenerator to use
+     * @param existingFileHelper  the ExistingFileHelper to use
+     */
     public ModBlockTagsProvider(DataGenerator dataGenerator, @Nullable ExistingFileHelper existingFileHelper) {
         super(dataGenerator, TutorialMod.MOD_ID, existingFileHelper);
     }
 
+    /**
+     * Adds Tags for all the blocks.
+     */
     @Override
     protected void addTags() {
         tag(ModTags.Blocks.ORES_SILVER).add(ModBlocks.SILVER_ORE.get());

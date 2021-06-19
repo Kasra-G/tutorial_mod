@@ -12,14 +12,31 @@ import net.minecraftforge.common.Tags;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Consumer;
 
+/**
+ * This class provides all the recipes.
+ */
 public class ModRecipeProvider extends RecipeProvider {
+
+    /**
+     * Constructs a new ModRecipeProvider.
+     *
+     * @param dataGenerator  the DataGenerator to use
+     */
     public ModRecipeProvider(DataGenerator dataGenerator) {
         super(dataGenerator);
     }
 
+    /**
+     * Builds all the recipes for this mod.
+     * Although named {@code buildShapelessRecipes}, it actually builds all the recipes.
+     *
+     * @param consumer  the Consumer for the finished recipes
+     */
     @Override
     @ParametersAreNonnullByDefault
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
+
+        //build the shapeless recipes
         ShapelessRecipeBuilder.shapeless(ModItems.SILVER_INGOT.get(), 9)
                 .requires(ModTags.Items.STORAGE_BLOCKS_SILVER)
                 .unlockedBy("has_item", has(ModTags.Items.STORAGE_BLOCKS_SILVER))
@@ -34,6 +51,11 @@ public class ModRecipeProvider extends RecipeProvider {
         buildSmeltingRecipes(consumer);
     }
 
+    /**
+     * Helper method that builds all the smelting recipes.
+     *
+     * @param consumer  the Consumer for the finished recipes
+     */
     private void buildSmeltingRecipes(Consumer<IFinishedRecipe> consumer) {
         CookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.SILVER_ORE.get()), ModItems.SILVER_INGOT.get(), 0.7f, 200)
                 .unlockedBy("has_item", has(ModTags.Items.ORES_SILVER))
@@ -46,6 +68,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("silver_ingot_smelting_dust"));
     }
 
+    /**
+     * Helper method for building the shaped recipes.
+     *
+     * @param consumer  the Consumer for the finished recipes
+     */
     private void buildShapedRecipes(Consumer<IFinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(ModBlocks.SILVER_BLOCK.get(), 1)
                 .define('#', ModTags.Items.INGOTS_SILVER)
@@ -67,6 +94,11 @@ public class ModRecipeProvider extends RecipeProvider {
         buildSilverArmorRecipes(consumer);
     }
 
+    /**
+     * Helper method for building the silver armor recipes.
+     *
+     * @param consumer  the Consumer for the finished recipes
+     */
     private void buildSilverArmorRecipes(Consumer<IFinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(ModItems.SILVER_HELMET.get(), 1)
                 .define('#', ModTags.Items.INGOTS_SILVER)
@@ -101,6 +133,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
     }
 
+    /**
+     * Helper method for building the silver tool recipes.
+     *
+     * @param consumer  the Consumer for the finished recipes
+     */
     private void buildSilverToolRecipes(Consumer<IFinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(ModItems.SILVER_AXE.get(), 1)
                 .define('#', ModTags.Items.INGOTS_SILVER)
@@ -147,7 +184,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModTags.Items.INGOTS_SILVER))
                 .save(consumer);
     }
-    
+
+    /**
+     * Helper method that helps make a unique ResourceLocation for recipes.
+     *
+     * @param path  the name of the location
+     * @return  the created ResourceLocation
+     */
     private ResourceLocation modId(String path) {
         return new ResourceLocation(TutorialMod.MOD_ID, path);
     }
