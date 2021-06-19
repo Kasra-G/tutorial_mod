@@ -26,7 +26,6 @@ public class Util {
         MinecraftForge.EVENT_BUS.addListener(LivingListener::onEntityTargetedEvent);
         MinecraftForge.EVENT_BUS.addListener(LivingListener::onLivingUpdateEvent);
         MinecraftForge.EVENT_BUS.addListener(LivingListener::onDamageTakenEvent);
-        MinecraftForge.EVENT_BUS.addListener(LivingListener::onEntitySpawn);
     }
 
     /**
